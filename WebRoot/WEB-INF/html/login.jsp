@@ -28,7 +28,7 @@
 			<div>
 				<a href="${path}/l/lic_read.do">验证licence</a>
 			</div>
-			<div>
+			<div style="display: none;">
 				<a href="${path}/l/sys_read.do">读取硬件信息</a>
 				<br>
 				<label>需要把\WEB-INF\lib\swt-extension-win32.dll,\WEB-INF\lib\swt-win32.dll拷贝到tomcat\bin下或者jdk\bin下</label>

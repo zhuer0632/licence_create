@@ -37,12 +37,10 @@
 		if($(c).val()=="true")
 		{	
 			 //如果是正式版
-			 $(".table_form").find("tr:first").hide();
 			 $(".table_form").find("tr:eq(4)").show();
 		}
 		else
 		{		
-			$(".table_form").find("tr:first").show();
 			$(".table_form").find("tr:eq(4)").hide();
 		}
 	}
@@ -107,10 +105,11 @@
 		<div style=" border: 1px red  solid; margin:10px;padding:10px;">
 		 <table  class="table_form">
 		 	<tr>
-		 		<td class="tableformtitxt">到期时间[试用版]</td>
-		 		<td colspan="2">
+		 		<td class="tableformtitxt">到期时间</td>
+		 		<td>
 		 				<input name="endtime_str"  type="text"  readonly="readonly"  value="${endtime_str}" onClick="WdatePicker()" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd'})" >
 		 		</td>
+		 		<td>正式版也需要设置到期时间</td>
 		 	</tr>
 		   <tr>
 		 		<td class="tableformtitxt">是否是正式版</td>
