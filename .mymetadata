@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="licence_create"
+  id="myeclipse.1353072465987"
+  context-root="/lic"
+  j2ee-spec="5.0"
+  archive="licence_create.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

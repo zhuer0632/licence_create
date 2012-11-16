@@ -1,0 +1,40 @@
+
+body{ padding:0px; margin:0px; font-size:12px;color:#1C527A;}
+
+ul,li,dt,dd,dl,p{padding:0px; margin:0px; list-style:none;}
+a {text-decoration:none;}
+
+.table_form { border-collapse:collapse; border:1px solid #cdcdcd; background:#fff;}
+.table_form td{height:30px;  padding-left:5px;padding-right:5px; border:1px solid #cdcdcd;}
+.table_form .tableformtitxt { background:#f3f3f3; padding-left:10px;padding-left:10px;}
+.table_form .tableformtitxt input {padding-top:6px; padding-right:4px;}
+.table_form a {color:#308cc2;}
+
+
+/*提示区域*/
+.msgbox
+{
+	width: 100%; 
+	padding-top: 2px;
+	height: 24px; 
+	top: 43px; 
+	text-align: center; 
+	/*display: none;*/
+	visibility:hidden;
+}
+.errHighlight
+{
+  background-color:#F9F2B3; 
+}
+.errmsg
+{
+	background: none repeat scroll 0 0 #EAA000;
+    color: #FFFFFF;
+	border-radius: 3px 3px 3px 3px;
+    color: #FFFFFF;
+    height: 20px;
+    line-height: 18px;
+    padding: 3px 24px;	
+}
+ 
+

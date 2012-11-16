@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+			http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+			http://www.springframework.org/schema/context 
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd
+			http://www.springframework.org/schema/aop 
+			http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+			http://www.springframework.org/schema/tx 
+			http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+			http://www.springframework.org/schema/mvc 
+			http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
+			http://www.springframework.org/schema/context 
+			http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<!-- 该 BeanPostProcessor 将自动对标注 @Autowired 的 Bean 进行注入 -->
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="net.sourceforge.jtds.jdbc.Driver" />
+		<property name="jdbcUrl"
+			value="jdbc:jtds:sqlserver://127.0.0.1:1433;databaseName=db_name;SelectMethod=cursor" />
+		<property name="user" value="sa" />
+		<property name="password" value="!@#$%12345" />
+		<!-- 最多创建多少链接 -->
+		<property name="MaxPoolSize" value="40000" />
+		<!-- 最少保留多少链接 -->
+		<property name="MinPoolSize" value="10" />
+		<!-- 没有连接的时候一次创建多少 -->
+		<property name="AcquireIncrement" value="10" />
+		<!--  超时不用，就关闭连接,单位秒 -->
+		<property name="MaxIdleTime" value="60" />
+	</bean>
+
+	<!-- spring集成 NutDao -->
+	<!--
+		<bean id="dao" class="org.nutz.dao.impl.NutDao"> <property
+		name="dataSource" ref="dataSource" /> </bean>
+	-->
+
+	<!--所有services-->
+	<!-- 自动检测注解 -->
+	<!--
+		<context:component-scan base-package="com.me.biz" />
+		<context:component-scan base-package="com.me.common.init" />
+	-->
+
+	<!-- 将datasource交spring事务管理 -->
+	<bean id="txManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
+
+
+	<!-- 开启事务注解功能 -->
+	<tx:annotation-driven transaction-manager="txManager" />
+
+	<!-- 声明一个jdbcTemplate,java类中@Autowired能按类型注入 -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+
+	
+</beans>
+
+
+
+

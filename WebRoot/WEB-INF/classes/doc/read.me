@@ -1,0 +1,45 @@
+
+ 
+
+1： 
+ http://127.0.0.1:8080/shangchuan/FileUploadCtrl/showFileUploadCtrl.do
+ 对应的跟官方网站上的一模一样 
+ http://demo.swfupload.org/v220/simpledemo/index.php
+
+ 这个例子，永远不动。
+ 
+ ---
+ 
+2：
+添加一个文件后，status span 隔多久才消失? 
+这个时间定义在:fileprogress.js  line 97行  [默认10秒钟后才消失]
+
+3:
+ 
+如果需要更改button的背景图片和文字
+
+ button_image_url: "${path}/resource2/TestImageNoText_65x29.png",
+
+ button_text: '<span class="theFont">上传...</span>',
+ button_text_style: ".theFont {width:50px; height:25px; font-size:12px; text-align:center;vertical-align: middle; font-family:'微软雅黑', ''黑体; color:#1c527a; }}",
+				
+
+4:
+
+更改指针为小手 [HAND]
+
+5:
+
+上传完毕之后,将当前实例重置
+
+不然的话，其中的参数就没有了 
+
+swfu1.setPostParams({"requestid" : $("#requestfileid").val(),  "fieldName":"files"});
+
+
+
+ 
+ 
+ 
+ 
+ 
